@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>pico w BLE control panel for Biped Robot</title>
+</head>
+
+<body>
+    <div class="connect-state">
+        <button class="connect-btn" type="button" id="connect">connect</button>
+        <button class="connect-btn display-none" type="button" id="disconnect">disconnect</button>
+        <div class="status" id="status"></div>
+    </div>
+    <p id="tabcontrol">
+        <a href="#tabpage1">PANEL</a>
+        <a href="#tabpage2">DIRECT</a>
+        <a href="#tabpage3">ADJUST</a>
+    </p>
+    <div id="tabbody">
+
+        <!--- TAB1 --->
+        <div class="pages" id="tabpage1">
+            <table>
+                <tr>
+                    <td><button type="button" id="btn1" class="actbtn"><img class="flip-horizontal" src="images/a2.png"
+                                alt="stop" /></button></td>
+                    <td><button type="button" id="btn2" class="actbtn"><img src="images/a1.png" alt="stop" /></button>
+                    </td>
+                    <td><button type="button" id="btn3" class="actbtn"><img src="images/a2.png" alt="stop" /></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="button" id="btn4" class="actbtn"><img class="flip-horizontal" src="images/a3.png"
+                                alt="stop" /></button></td>
+                    <td><button type="button" id="btn5" class="actbtn"></button></td>
+                    <td><button type="button" id="btn6" class="actbtn"><img src="images/a3.png" alt="stop" /></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="button" id="btn7" class="actbtn"><img class="flip-horizontal flip-vertical"
+                                src="images/a2.png" alt="stop" /></button></td>
+                    <td><button type="button" id="btn8" class="actbtn"><img class="flip-vertical" src="images/a1.png"
+                                alt="stop" /></button></td>
+                    <td><button type="button" id="btn9" class="actbtn"><img class="flip-vertical" src="images/a2.png"
+                                alt="stop" /></button></td>
+                </tr>
+            </table>
+        </div>
+
+        <!--- TAB2 --->
+        <div class="pages" id="tabpage2">
+            <form>
+                <label> 
+                    <input type="radio" name="reference_plane" value="floor" checked>floor
+                    <input type="radio" name="reference_plane" value="right_sole">right sole
+                    <input type="radio" name="reference_plane" value="left_sole">left sole
+                    <input type="radio" name="reference_plane" value="body">body
+                </label>
+            </form>
+            <hr>
+            <div id="foot_frame">
+                <div class="trim_foot_frame"><img src="images/floor.png" id="floor" alt="" class="layer-img hidden" />
+                </div>
+                <div class="trim_foot_frame"><img src="images/base.png" id="base" alt="" class="layer-img hidden" />
+                </div>
+                <div class="trim_foot_frame"><img src="images/left_foot.png" id="left_foot" alt=""
+                        class="layer-img hidden" /></div>
+                <div class="trim_foot_frame"><img src="images/right_foot.png" id="right_foot" alt=""
+                        class="layer-img hidden" />
+                </div>
+            </div>
+            <table border="0">
+                <tr>
+                    <td>
+                        <div id="id_angle_right_foot" class="degree unselectable">90</div>
+                    </td>
+                    <td>
+                        <div id="id_inc_right_foot" class="incdecbutton unselectable">+</div>
+                    </td>
+                    <td>
+                        <div id="id_dec_right_foot" class="incdecbutton unselectable">-</div>
+                    </td>
+                    <td>
+                        <div id="id_angle_left_foot" class="degree unselectable">90</div>
+                    </td>
+                    <td>
+                        <div id="id_inc_left_foot" class="incdecbutton unselectable">+</div>
+                    </td>
+                    <td>
+                        <div id="id_dec_left_foot" class="incdecbutton unselectable">-</div>
+                    </td>
+                    <td>
+                        <div id="id_reset_foot_angle" class="incdecbutton reset unselectable">Reset</div>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <div id="leg_frame">
+                <div class="trim_leg_frame"><img src="images/body.png" id="body2" alt="" class="layer-img hidden" />
+                </div>
+                <div class="trim_leg_frame"><img src="images/left_leg.png" id="left_leg" alt=""
+                        class="layer-img hidden" /></div>
+                <div class="trim_leg_frame"><img src="images/right_leg.png" id="right_leg" alt=""
+                        class="layer-img hidden" /></div>
+            </div>
+            <table border="0">
+                <tr>
+                    <td>
+                        <div id="id_angle_right_leg" class="degree unselectable">90</div>
+                    </td>
+                    <td>
+                        <div id="id_inc_right_leg" class="incdecbutton unselectable">+</div>
+                    </td>
+                    <td>
+                        <div id="id_dec_right_leg" class="incdecbutton unselectable">-</div>
+                    </td>
+                    <td>
+                        <div id="id_angle_left_leg" class="degree unselectable">90</div>
+                    </td>
+                    <td>
+                        <div id="id_inc_left_leg" class="incdecbutton unselectable">+</div>
+                    </td>
+                    <td>
+                        <div id="id_dec_left_leg" class="incdecbutton unselectable">-</div>
+                    </td>
+                    <td>
+                        <div id="id_reset_leg_angle" class="incdecbutton reset unselectable">Reset</div>
+                    </td>
+                </tr>
+            </table>
+            <div class="inner_container">
+                <div class="ctrl_container">
+                    <input class="update setang" type="button" value="UPDATE" onclick="set_angles()">
+                </div>
+            </div>
+        </div>
+
+        <!--- TAB3 --->
+        <div class="pages" id="tabpage3">
+            <datalist id="my-datalist">
+                <option value="80"></option>
+                <option value="81"></option>
+                <option value="82"></option>
+                <option value="83"></option>
+                <option value="84"></option>
+                <option value="85"></option>
+                <option value="86"></option>s
+                <option value="87"></option>
+                <option value="88"></option>
+                <option value="89"></option>
+                <!---- for center mark -----
+                <option value="90"></option>
+                --------------------------->
+                <option value="91"></option>
+                <option value="92"></option>
+                <option value="93"></option>
+                <option value="94"></option>
+                <option value="95"></option>
+                <option value="96"></option>
+                <option value="97"></option>
+                <option value="98"></option>
+                <option value="99"></option>
+                <option value="100"></option>
+            </datalist>
+
+            <table id="adjust-table" class="display-none">
+                <tr>
+                    <th class="side" colspan="2"><img class="img_top" src="images/top.png" alt="top_view" /></th>
+                </tr>
+                <tr>
+                    <td><input type="range" class="range" list="my-datalist" id="lr_ini" min="80" max="100" value="90"
+                            aria-label="lr_ini"></td>
+                    <td><input type="range" class="range" list="my-datalist" id="ll_ini" min="80" max="100" value="90"
+                            aria-label="ll_ini"></td>
+                </tr>
+                <tr>
+                    <th class="side" colspan="2"><img class="img_front" src="images/front.png" alt="front_view" /></th>
+                </tr>
+                <tr>
+                    <td><input type="range" class="range" list="my-datalist" id="fr_ini" min="80" max="100" value="90"
+                            aria-label="fr_ini"></td>
+                    <td><input type="range" class="range" list="my-datalist" id="fl_ini" min="80" max="100" value="90"
+                            aria-label="fl_ini"></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button class="update" type="button" onclick="set_angles_ini()" />UPDATE</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="sim.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+</body>
+
+</html>
