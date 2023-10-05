@@ -8,8 +8,8 @@ let rx_characteristic;
 
 // BLE UUID
 const UART_SERVICE = '6e400001-b5a3-f393-e0a9-e50e24dcca9e';
-const UART_SERVICE_RX_CHARACTERISTIC = '6e400002-b5a3-f393-e0a9-e50e24dcca9e';
-const UART_SERVICE_TX_CHARACTERISTIC = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';
+const UART_SERVICE_TX_CHARACTERISTIC = '6e400002-b5a3-f393-e0a9-e50e24dcca9e';
+const UART_SERVICE_RX_CHARACTERISTIC = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';
 
 window.onload = function () {
 
@@ -21,6 +21,7 @@ window.onload = function () {
 
         options.filters = [
             { services: [UART_SERVICE] },
+            { namePrefix: "BBC micro:bit" },
             { namePrefix: "mpy-uart" }
         ];
 
