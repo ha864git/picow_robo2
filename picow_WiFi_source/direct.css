@@ -1,0 +1,174 @@
+.tab {
+    width: 360px;
+    height: 650px;
+    max-width: 100%;
+    margin: auto;
+}
+
+.tab-list {
+    display: flex;
+}
+
+.tab-list-item {
+    height: 40px;
+    width: 120px;
+    border-bottom: 4px solid black;
+    line-height: 40px;
+    text-align: center;
+    font-size: 10pt;
+    float: left;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.is-btn-active {
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.forms {
+    padding: 10px;
+    margin: auto;
+}
+
+.zu {
+    width: 360px;
+    height: 200px;
+}
+
+.body {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 90px;
+    width: 160px;
+    height: 120px;
+    background: lightgrey;
+}
+
+.leg {
+    position: absolute;
+    margin-top: 20px;
+    width: 60px;
+    height: 100px;
+    background: lightgrey;
+}
+
+.leg.left {
+    margin-left: 190px;
+}
+
+.leg.right {
+    margin-left: 90px;
+}
+
+.soale {
+    position: absolute;
+    margin-top: 40px;
+    width: 100px;
+    height: 120px;
+    background: black;
+    opacity: 50%;
+}
+
+.soale.left {
+    margin-left: 190px;
+    transform-origin: 30px 60px;
+}
+
+.soale.right {
+    margin-left: 50px;
+    transform-origin: 70px 60px;
+}
+
+.soale2 {
+    position: absolute;
+    margin-top: 120px;
+    width: 100px;
+    height: 6px;
+    background: black;
+    opacity: 50%;
+}
+
+.soale2.left {
+    margin-left: 190px;
+    transform-origin: 30px -30px;
+}
+
+.soale2.right {
+    margin-left: 50px;
+    transform-origin: 70px -30px;
+}
+
+.foot {
+    position: absolute;
+    margin-top: 80px;
+    width: 60px;
+    height: 40px;
+    background: black;
+    opacity: 50%;
+    transform-origin: 30px 10px;
+}
+
+.foot.left {
+    margin-left: 190px;
+}
+
+.foot.right {
+    margin-left: 90px;
+}
+
+
+div.degree {
+    width: 50px;
+    background-color: white;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 5px;
+}
+
+div.incdecbutton {
+    width: 36px;
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div.incdecbutton.reset {
+    width: 50px;
+    color: black;
+    background-color: lightgrey;
+}
+
+td {
+    text-align: center;
+}
+
+.ta {
+    width: 40px;
+}
+
+.na {
+    width: 40px;
+}
+
+input.update {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 10pt;
+    background-color: black;
+    color: white;
+}
+
+.trapa {
+    opacity: 0;
+}

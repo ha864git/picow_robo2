@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>pico w control panel for Biped Robot</title>
+</head>
+
+<style>
+    .tab {
+        width: 360px;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .tab-list {
+        display: flex;
+    }
+
+    .tab-list-item {
+        height: 40px;
+        width: 120px;
+        border-bottom: 4px solid black;
+        line-height: 40px;
+        text-align: center;
+        font-size: 10pt;
+        float: left;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+    }
+
+    .is-btn-active {
+        background-color: black;
+        color: white;
+        border: none;
+    }
+
+    .forms {
+        padding: 10px;
+        margin: auto;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    td.right {
+        background-color: lightgrey;
+    }
+
+    td.left {
+        background-color: lightgrey;
+    }
+
+    th {
+        background-color: lightgrey;
+        height: 50px;
+    }
+
+    input {
+        width: 160px;
+    }
+
+    button.update {
+        width: 90px;
+        height: 35px;
+        border-radius: 8px;
+        font-size: 10pt;
+        background-color: black;
+        color: white;
+    }
+
+    .ra {
+        opacity: 0;
+    }
+</style>
+
+<body>
+    <div class="tab">
+        <div class="tab-list">
+            <button type="button" class="tab-list-item" onclick="location.href='index.html'">PANEL</button>
+            <button type="button" class="tab-list-item" onclick="location.href='direct.html'">DIRECT</button>
+            <button type="button" class="tab-list-item is-btn-active">ADJUST</button>
+        </div>
+        <div class="forms">
+            <datalist id="my-datalist">
+                <option value="80"></option>
+                <option value="81"></option>
+                <option value="82"></option>
+                <option value="83"></option>
+                <option value="84"></option>
+                <option value="85"></option>
+                <option value="86"></option>
+                <option value="87"></option>
+                <option value="88"></option>
+                <option value="89"></option>
+                <!--------- for center mark -----------
+                <option value="90"></option>
+            --------------------------------------->
+                <option value="91"></option>
+                <option value="92"></option>
+                <option value="93"></option>
+                <option value="94"></option>
+                <option value="95"></option>
+                <option value="96"></option>
+                <option value="97"></option>
+                <option value="98"></option>
+                <option value="99"></option>
+                <option value="100"></option>
+            </datalist>
+            <table>
+                <tr>
+                    <th colspan="2">Top View</th>
+                </tr>
+                <tr>
+                    <td class="right">Right leg</td>
+                    <td class="left">Left leg</td>
+                </tr>
+                <tr>
+                    <td><input type="range" class="ra" list="my-datalist" id="lr_ini" min="80" max="100" value=""
+                            aria-label="lr_ini"></td>
+                    <td><input type="range" class="ra" list="my-datalist" id="ll_ini" min="80" max="100" value=""
+                            aria-label="ll_ini"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Front View</th>
+                </tr>
+                <tr>
+                    <td class="right">Right foot</td>
+                    <td class="left">Left foot</td>
+                </tr>
+                <tr>
+                    <td><input type="range" class="ra" list="my-datalist" id="fr_ini" min="80" max="100" value=""
+                            aria-label="fr_ini"></td>
+                    <td><input type="range" class="ra" list="my-datalist" id="fl_ini" min="80" max="100" value=""
+                            aria-label="fl_ini"></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button class="update" type="button" onclick="set_angles_ini()" />UPDATE</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="adjust.js"></script>
+
+</body>
+
+</html>
