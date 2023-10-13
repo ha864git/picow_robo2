@@ -126,6 +126,7 @@ function check_rx_data(str) {
             document.getElementById("lr_ini").value = 180 - parseInt(paras[2]);
             document.getElementById("fr_ini").value = parseInt(paras[3]);
             document.getElementById("adjust-table").classList.remove('display-none');
+            document.getElementById("adj_result").innerHTML = "leg_left_angle_init=" + paras[0] + "<br>" + "foot_left_angle_init=" + paras[1] + "<br>" + "leg_right_angle_init=" + paras[2] + "<br>" + "foot_right_angle_init=" + paras[3];
         } else if (args[0] === 'ra') {
             document.getElementById("id_angle_left_leg").value = parseInt(paras[0]);
             document.getElementById("id_angle_left_foot").value = parseInt(paras[1]);
@@ -142,6 +143,7 @@ function set_angles_ini() {
     const fr_ini = document.getElementById("fr_ini").value;
     let tx_str = "si " + ll_ini + "," + fl_ini + "," + lr_ini + "," + fr_ini;
     send_message(tx_str);
+    document.getElementById("adj_result").innerHTML = "leg_left_angle_init=" + ll_ini + "<br>" + "foot_left_angle_init=" + fl_ini + "<br>" + "leg_right_angle_init=" + lr_ini + "<br>" + "foot_right_angle_init=" + fr_ini;
 }
 
 function set_angles() {
