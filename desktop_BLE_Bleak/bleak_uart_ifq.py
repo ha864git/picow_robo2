@@ -80,11 +80,10 @@ class ble_uart:
 
     def _name_filter(self, device, ad):
         print(device.name)
+        res = False
         for na in self._target_name:
-            searchText = na.lower()
-            if str(device.name).lower().find(searchText) != -1:
-                return True
-        return False
+            res = res or (device.name and na in device.name)
+        return res
 
     def _handle_disconnect(self, _: BleakClient):
         print("Device was disconnected, goodbye.")
