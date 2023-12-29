@@ -47,7 +47,7 @@ struct PageAdjustView: View {
                 
             VStack {
                 Button("UPDATE", action: {
-                    viewModel.getAnglesInit()
+                    viewModel.setAnglesInit()
                 })
                 .bold()
                 .padding()

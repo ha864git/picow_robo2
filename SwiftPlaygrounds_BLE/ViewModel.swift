@@ -142,7 +142,7 @@ class ViewModel: ObservableObject {
           
     }
 
-    func getAnglesInit() {
+    func setAnglesInit() {
 
         var cmd: String = "si "
         cmd += String(180 - Int(self.left_leg_ini) )
