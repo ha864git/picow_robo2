@@ -4,8 +4,8 @@ import AsyncBluetooth
 import Foundation
 
 let uart_service_uuid = CBUUID(string: "6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
-let tx_char_uuid = CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
-let rx_char_uuid = CBUUID(string: "6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
+let rx_char_uuid = CBUUID(string: "6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
+let tx_char_uuid = CBUUID(string: "6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
 
 @MainActor
 class ViewModel: ObservableObject {
@@ -60,7 +60,6 @@ class ViewModel: ObservableObject {
                                 .filter { $0.uuid == rx_char_uuid }
                                 .map { try? $0.parsedValue() as String? }
                                 .sink { value in
-                                    print("received:'\(value ?? "")'")
                                     self.checkCommand(cmd: (value ?? ""))
                                 }
                                 .store(in: &cancellables)
@@ -116,7 +115,7 @@ class ViewModel: ObservableObject {
                 if let characteristic = tx_characteristic {
                     let cmdnl = cmd + "\n"
                     let data = [UInt8](cmdnl.utf8)
-                    print("sent:'\(cmd.utf8)'")
+                    printUartData(itm: "sent", data: cmdnl)
                     try await peripheral?.writeValue(Data(data), for: characteristic, type: .withoutResponse)
                 }
             } catch {
@@ -126,7 +125,10 @@ class ViewModel: ObservableObject {
     }
     
     func checkCommand(cmd: String) {
-        let arr:[String] = cmd.components(separatedBy: " ")
+        printUartData(itm: "received", data: cmd)
+        var tmp = cmd.replacingOccurrences(of: "\r", with: "")
+        tmp = tmp.replacingOccurrences(of: "\n", with: "")
+        let arr:[String] = tmp.components(separatedBy: " ")
  
         if arr.count == 2 {
             if arr[0] == "ri" {
@@ -153,6 +155,11 @@ class ViewModel: ObservableObject {
 
     }
     
+    func printUartData(itm :String, data :String) {
+        var tmp = data.replacingOccurrences(of: "\r", with: "\\r")
+        tmp = tmp.replacingOccurrences(of: "\n", with: "\\n")
+        print(itm + ":'\(tmp)'")
+    }
 }
 
 enum PeripheralError: Error {
