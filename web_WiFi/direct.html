@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="direct.css">
+    <title>pico w control panel for Biped Robot</title>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab-list">
+            <button type="button" class="tab-list-item" onclick="location.href='index.html'">PANEL</button>
+            <button type="button" class="tab-list-item is-btn-active">DIRECT</button>
+            <button type="button" class="tab-list-item" onclick="location.href='adjust.html'">ADJUST</button>
+        </div>
+        <div class="forms trapa">
+            <div>
+                <div class="zu  trapa" id="leg_frame">
+                    <div class="body"></div>
+                    <div id="left_leg" class="soale left"></div>
+                    <div id="right_leg" class="soale right"></div>
+                </div>
+                <table border="0">
+                    <tr>
+                        <td>
+                            <div id="id_angle_right_leg" class="degree unselectable">90</div>
+                        </td>
+                        <td>
+                            <div id="id_inc_right_leg" class="incdecbutton unselectable">+</div>
+                        </td>
+                        <td>
+                            <div id="id_dec_right_leg" class="incdecbutton unselectable">-</div>
+                        </td>
+                        <td>
+                            <div id="id_angle_left_leg" class="degree unselectable">90</div>
+                        </td>
+                        <td>
+                            <div id="id_inc_left_leg" class="incdecbutton unselectable">+</div>
+                        </td>
+                        <td>
+                            <div id="id_dec_left_leg" class="incdecbutton unselectable">-</div>
+                        </td>
+                        <td>
+                            <div id="id_reset_leg_angle" class="incdecbutton reset unselectable">Reset</div>
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+                <div class="zu  trapa" id="foot_frame">
+                    <div class="leg left"></div>
+                    <div class="leg right"></div>
+                    <div id="left_foot" class="foot left"></div>
+                    <div id="right_foot" class="foot right"></div>
+                    <div id="left_foot_soale" class="soale2 left"></div>
+                    <div id="right_foot_soale" class="soale2 right"></div>
+                </div>
+                <table border="0">
+                    <tr>
+                        <td>
+                            <div id="id_angle_right_foot" class="degree unselectable">90</div>
+                        </td>
+                        <td>
+                            <div id="id_inc_right_foot" class="incdecbutton unselectable">+</div>
+                        </td>
+                        <td>
+                            <div id="id_dec_right_foot" class="incdecbutton unselectable">-</div>
+                        </td>
+                        <td>
+                            <div id="id_angle_left_foot" class="degree unselectable">90</div>
+                        </td>
+                        <td>
+                            <div id="id_inc_left_foot" class="incdecbutton unselectable">+</div>
+                        </td>
+                        <td>
+                            <div id="id_dec_left_foot" class="incdecbutton unselectable">-</div>
+                        </td>
+                        <td>
+                            <div id="id_reset_foot_angle" class="incdecbutton reset unselectable">Reset</div>
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+                <div>
+                    <input class="update" type="button" value="UPDATE" onclick="set_angles()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="url.js"></script>
+    <script type="text/javascript" src="direct_sub.js"></script>
+    <script type="text/javascript" src="direct.js"></script>
+
+</body>
+
+</html>
