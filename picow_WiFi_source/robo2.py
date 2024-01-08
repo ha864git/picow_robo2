@@ -1,12 +1,12 @@
 from machine import Timer
 import micropython
-import robo2_servo_sg90_kitronik5339
+import robo2_servo_sg90_kitronik5348
 import robo2_angles_ini
 
 class robo2:
 
     def __init__ (self):
-        self._servomotor = robo2_servo_sg90_kitronik5339.PIOServo()
+        self._servomotor = robo2_servo_sg90_kitronik5348.PIOServo()
         self._angles = [90, 90, 90, 90]
         self._angles_ini = [robo2_angles_ini.ll_ini, robo2_angles_ini.fl_ini, robo2_angles_ini.lr_ini, robo2_angles_ini.fr_ini]
         self._update_angle()
